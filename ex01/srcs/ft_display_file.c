@@ -6,11 +6,11 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:24:10 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/16 17:05:21 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/16 18:54:22 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_display_file.h"
+#include "cat.h"
 
 void	ft_putchar_fd(const char c, int fd)
 {
@@ -40,14 +40,24 @@ void	display_content(const int fd)
 		ft_putchar_fd(*buffer, STDOUT_FILENO);
 }
 
-void	ft_display_file(char *file_path)
+int	ft_display_file(char *file_path)
 {
 	int	fd;
+	int	ret_value;
 
 	fd = open(file_path, O_RDONLY);
-	if (fd == -1)
-		ft_putstr_fd(UNREADABLE_FILE, STDERR_FILENO);
-	else
+	ret_value = EXIT_SUCCESS;
+	if (fd != -1)
 		display_content(fd);
+	else
+	{
+		ft_putstr_fd("ft_cat: ", STDERR_FILENO);
+		ft_putstr_fd(file_path, STDERR_FILENO);
+		ft_putstr_fd(": ", STDERR_FILENO);
+		ft_putstr_fd(strerror(errno), STDERR_FILENO);
+		ft_putstr_fd("\n", STDERR_FILENO);
+		ret_value = EXIT_FAILURE;
+	}
 	close(fd);
+	return (ret_value);
 }

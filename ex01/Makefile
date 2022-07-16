@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 12:57:35 by rbroque           #+#    #+#              #
-#    Updated: 2022/07/16 17:25:06 by rbroque          ###   ########.fr        #
+#    Updated: 2022/07/16 17:24:41 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 
-NAME = ft_display_file
+NAME = ft_cat
 
 ### COMMAND
 
