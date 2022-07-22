@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:25:29 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/21 22:42:59 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/21 23:52:31 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	btree_apply_infix(t_btree *root, void (*applyf)(void *));
 void	btree_apply_suffix(t_btree *root, void (*applyf)(void *));
 
 void	btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *, void *));
+
+void	*btree_search_item(t_btree *root,
+		void *data_ref, int (*cmpf)(void *, void *));
 
 void	display_node(t_btree *node)
 {
@@ -49,6 +52,7 @@ int	main(void)
 	btree_insert_data(&root, "5", comp);
 	btree_insert_data(&root, "3", comp);
 	btree_insert_data(&root, "1", comp);
+	btree_search_item(root, "5", &strcmp);
 
 //	display_node(root);
 /*
