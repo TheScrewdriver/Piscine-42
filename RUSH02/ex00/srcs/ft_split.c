@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 21:46:09 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 10:54:00 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 17:57:32 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,6 @@ char	*ft_strchr(char *str, char c)
 		++i;
 	}
 	return (NULL);
-}
-
-char	*ft_strncpy(char *dest, char *src, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		++i;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		++i;
-	}
-	return (dest);
 }
 
 size_t	get_count_words(char *str, char *charset)

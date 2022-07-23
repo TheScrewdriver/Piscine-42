@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 12:57:35 by rbroque           #+#    #+#              #
-#    Updated: 2022/07/23 11:17:58 by rbroque          ###   ########.fr        #
+#    Updated: 2022/07/23 17:51:46 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,11 @@ NAME = rush-02
 PATH_SRCS = srcs
 
 SRCS += string.c
+SRCS += ft_atoi.c
 SRCS += ft_split.c
-SRCS += parser.c
+SRCS += parsing.c
+SRCS += lexer.c
+SRCS += map.c
 SRCS += read_file.c
 SRCS += free.c
 SRCS += rush02.c

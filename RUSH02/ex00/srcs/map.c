@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 17:02:07 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 17:46:05 by rbroque          ###   ########.fr       */
+/*   Created: 2022/07/23 17:16:55 by rbroque           #+#    #+#             */
+/*   Updated: 2022/07/23 17:51:04 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
 
-size_t     ft_strlen(const char *str)
+t_map	init_map(unsigned int input_key, char *input_value)
 {
-	size_t     i;
+	t_map	map;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	map.key = input_key;
+	map.value = input_value;
+	return (map);
 }
 
-char	*ft_strncpy(char *dest, char *src, size_t n)
+t_map	create_map(char *line)
 {
-	size_t	i;
+	char	**data;
 
-	i = 0;
-	while (src[i] != '\0' && (i < n))
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	data = ft_split(line, ":");
+	return (init_map(ft_atoi(data[0]), ft_create_value(data[1])));
 }
