@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 22:00:02 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 21:54:22 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 22:20:41 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 
 # define SPACE ' '
 # define SEPARATOR ':'
-# define ERROR_MESSAGE "Dict Error\n"
+# define ERROR_DICT "Dict Error\n"
+# define ERROR_NB "Error\n"
+# define DEFAULT_PATH "../assets/numbers.dict"
 # define FIRST_WHITESPACE 9
 # define LAST_WHITESPACE 13
 
@@ -72,8 +74,12 @@ void	display_key(unsigned int nb, t_map *maps);
 
 long	ft_atou(char *str);
 
-// DISPLAY.C
+// PRINT_NB.C
 
 void	print_nb(long nb, t_map *maps);
+
+// PRINT.C
+
+void	ft_putstr_fd(const char *str, const int fd);
 
 #endif
