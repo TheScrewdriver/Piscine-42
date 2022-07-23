@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 12:57:35 by rbroque           #+#    #+#              #
-#    Updated: 2022/07/23 09:53:43 by rbroque          ###   ########.fr        #
+#    Updated: 2022/07/23 11:17:58 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ NAME = rush-02
 PATH_SRCS = srcs
 
 SRCS += string.c
+SRCS += ft_split.c
 SRCS += parser.c
 SRCS += read_file.c
+SRCS += free.c
 SRCS += rush02.c
 
 vpath %.c $(PATH_SRCS)
@@ -44,28 +46,27 @@ CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 
-### COMMAND
-
-RM = rm -fr
+ifeq ($(debug), true)
+	CFLAGS += -g3
+	CFLAGS += -fsanitize=address,undefined
+endif
 
 ### RULES
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-#	$(CC) $(CFLAGS) $^ -o $@ -I $(INCLUDES)
+	$(CC) $(CFLAGS) $^ -o $@ -I $(INCLUDES)
 
-$(PATH_OBJS):
-	mkdir $@
-
-$(OBJS): $(PATH_OBJS)/%.o: %.c $(HEADER) $(PATH_OBJS)
+$(OBJS): $(PATH_OBJS)/%.o: %.c $(HEADER)
+	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean:
-	${RM} ${PATH_OBJS}/${OBJS}
+	$(RM) -R $(PATH_OBJS)
 
 fclean: clean
-	${RM} $(NAME)
+	$(RM) $(NAME)
 
 re: fclean
 	$(MAKE)

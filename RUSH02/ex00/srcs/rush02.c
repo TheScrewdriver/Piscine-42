@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:57:50 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 09:31:43 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 12:05:45 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,25 @@
 
 int	main(int ac, char **av)
 {
+	size_t	i;
+	char	*file;
+	char	**lines;
+
 	if (ac == 2)
-		printf("%s\n", get_file(av[1]));
+	{
+		i = 0;
+		file = get_file(av[1]);
+		if (file != NULL)
+		{
+			lines = ft_split(file, "\n");
+			while (lines[i] != NULL)
+			{
+				printf("%s\n", lines[i]);
+				++i;
+			}
+			free(file);
+			free_strings(lines);
+		}
+	}
 	return (0);
 }
