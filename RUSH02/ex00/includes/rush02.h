@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 22:00:02 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 17:54:17 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 19:38:07 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/stat.h>
-# include <errno.h>
+#include <limits.h>
 
 # define SPACE ' '
 # define SEPARATOR ':'
@@ -44,6 +44,7 @@ char	**ft_split(char *str, char *charset);
 // FREE.C
 
 void	free_strings(char **strs);
+void	free_maps(t_map **maps);
 
 // LEXER.C
 
@@ -63,8 +64,8 @@ char	*ft_strncpy(char *dest, char *src, size_t n);
 t_map	create_map(char *line);
 t_map	init_map(unsigned int input_key, char *input_value);
 
-// FT_ATOI.C
+// FT_ATOU.C
 
-int	ft_atoi(char *str);
+long	ft_atou(char *str);
 
 #endif

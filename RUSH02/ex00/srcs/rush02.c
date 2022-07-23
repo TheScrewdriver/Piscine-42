@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:57:50 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 18:01:02 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 19:38:19 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	main(int ac, char **av)
 	   printf("[sai: ouah] --> %d\n", is_valid_line("sai: ouah"));
 	   printf("[42  :  forty_two] --> %d\n", is_valid_line("42  :  forty_two"));
 	 */
+	size_t	i;
 	char	*file;
 	t_map	*maps;
 
@@ -85,14 +86,15 @@ int	main(int ac, char **av)
 		file = get_file(av[1]);
 		if (file != NULL)
 		{
+			i = 0;
 			maps = create_maps(file);
-			while ((*maps).value != NULL)
+			while (maps[i].value != NULL)
 			{
-				display_map(*maps);
-				++maps;
+				display_map(maps[i]);
+				++i;
 			}
-	//		free(file);
-//			free(maps);
+			free(file);
+			free_maps(&maps);
 		}
 	}
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbroque <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 10:41:31 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 10:45:19 by rbroque          ###   ########.fr       */
+/*   Created: 2022/07/23 19:27:42 by rbroque           #+#    #+#             */
+/*   Updated: 2022/07/23 19:37:55 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,17 @@ void	free_strings(char **strs)
 	}
 	free(strs[i]);
 	free(strs);
+}
+
+void	free_maps(t_map **maps)
+{
+	size_t	i;
+
+	i = 0;
+	while ((*maps)[i].value != NULL)
+	{
+		free((*maps)[i].value);
+		++i;
+	}
+	free(*maps);
 }

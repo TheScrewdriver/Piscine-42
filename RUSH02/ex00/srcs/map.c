@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbroque <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 17:16:55 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 17:51:04 by rbroque          ###   ########.fr       */
+/*   Created: 2022/07/23 19:28:54 by rbroque           #+#    #+#             */
+/*   Updated: 2022/07/23 19:34:14 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ t_map	init_map(unsigned int input_key, char *input_value)
 
 t_map	create_map(char *line)
 {
+	t_map	map;
 	char	**data;
 
 	data = ft_split(line, ":");
-	return (init_map(ft_atoi(data[0]), ft_create_value(data[1])));
+	map = init_map(ft_atou(data[0]), ft_create_value(data[1]));
+	free_strings(data);
+	return (map);
 }
