@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:27:50 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 19:27:51 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 21:39:34 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,13 @@ char	*skip_whitespaces(char *str)
 	return (str);
 }
 
-int	get_sign(const char *str)
-{
-	size_t	sign;
-
-	sign = 0;
-	while ((*str != '\0') && (*str == '+' || *str == '-'))
-	{
-		if (*str == '-')
-			++sign;
-		++str;
-	}
-	if (sign % 2 == 1)
-		return (-1);
-	return (1);
-}
-
 long	ft_atou(char *str)
 {
 	long	nb;
 
 	nb = 0;
 	str = skip_whitespaces(str);
-	while (*str == '+' || *str == '-')
+	while (*str == '+')
 		++str;
 	while (*str >= '0' && *str <= '9')
 	{

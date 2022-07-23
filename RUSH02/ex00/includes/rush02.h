@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 22:00:02 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 19:38:07 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 21:54:22 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	free_maps(t_map **maps);
 // LEXER.C
 
 bool	is_valid_line(const char *str);
+bool	are_lines_valid(const char **lines);
 
 // PARSING.C
 
@@ -58,14 +59,21 @@ char	*ft_create_value(char *str);
 
 size_t	ft_strlen(const char *str);
 char	*ft_strncpy(char *dest, char *src, size_t n);
+size_t	get_array_size(char **array);
 
 // MAP.C
 
 t_map	create_map(char *line);
+t_map	*create_maps(char *file);
 t_map	init_map(unsigned int input_key, char *input_value);
+void	display_key(unsigned int nb, t_map *maps);
 
 // FT_ATOU.C
 
 long	ft_atou(char *str);
+
+// DISPLAY.C
+
+void	print_nb(long nb, t_map *maps);
 
 #endif

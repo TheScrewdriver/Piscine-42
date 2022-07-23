@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:29:20 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 19:29:21 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 21:43:41 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ char	*ft_strncpy(char *dest, char *src, size_t n)
 		i++;
 	}
 	return (dest);
+}
+
+size_t	get_array_size(char **array)
+{
+	size_t	size;
+
+	size = 0;
+	while (array[size] != NULL)
+		++size;
+	return (size);
 }
