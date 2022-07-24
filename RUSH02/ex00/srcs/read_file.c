@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 22:10:57 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 12:20:14 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 23:53:38 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*get_file(const char *file_path)
 			file[size] = '\0';
 		}
 	}
+	else
+		file = NULL;
 	close(fd);
 	return (file);
 }

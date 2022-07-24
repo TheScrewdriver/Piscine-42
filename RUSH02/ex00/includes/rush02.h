@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 22:00:02 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 22:20:41 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 23:59:58 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define SEPARATOR ':'
 # define ERROR_DICT "Dict Error\n"
 # define ERROR_NB "Error\n"
-# define DEFAULT_PATH "../assets/numbers.dict"
+# define DEFAULT_PATH "./assets/numbers.dict"
 # define FIRST_WHITESPACE 9
 # define LAST_WHITESPACE 13
 
@@ -51,7 +51,7 @@ void	free_maps(t_map **maps);
 // LEXER.C
 
 bool	is_valid_line(const char *str);
-bool	are_lines_valid(const char **lines);
+bool	are_lines_valid(char **lines);
 
 // PARSING.C
 

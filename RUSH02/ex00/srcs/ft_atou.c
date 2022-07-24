@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:27:50 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 21:39:34 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/23 23:52:01 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ long	ft_atou(char *str)
 			return (-1);
 		++str;
 	}
+	if (*str != '\0')
+		return (-1);
 	return ((unsigned int)nb);
 }

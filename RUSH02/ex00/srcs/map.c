@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:28:54 by rbroque           #+#    #+#             */
-/*   Updated: 2022/07/23 21:52:20 by rbroque          ###   ########.fr       */
+/*   Updated: 2022/07/24 00:00:42 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,23 @@ t_map	*create_maps(char *file)
 	t_map	*maps;
 
 	lines = ft_split(file, "\n");
-	size = get_array_size(lines);
-	maps = (t_map *)malloc((size + 1) * sizeof(t_map));
-	if (maps != NULL)
+	if (are_lines_valid(lines) == true)
 	{
-		i = 0;
-		while (i < size)
+		size = get_array_size(lines);
+		maps = (t_map *)malloc((size + 1) * sizeof(t_map));
+		if (maps != NULL)
 		{
-			maps[i] = create_map(lines[i]);
-			++i;
+			i = 0;
+			while (i < size)
+			{
+				maps[i] = create_map(lines[i]);
+				++i;
+			}
+			maps[size] = init_map(0, NULL);
 		}
-		maps[size] = init_map(0, NULL);
 	}
+	else
+		maps = NULL;
 	free_strings(lines);
 	return (maps);
 }
@@ -62,7 +67,7 @@ void	display_key(unsigned int nb, t_map *maps)
 	{
 		if (nb == maps->key)
 		{
-			printf("%s ", maps->value);
+			ft_putstr_fd(maps->value, STDOUT_FILENO);
 			break ;
 		}
 		++maps;
